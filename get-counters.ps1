@@ -50,7 +50,8 @@ while($true)
     foreach ($s in $samples) {
         $value = $s.CookedValue * $multipliers[$s.path]
         $metric_id = $metric_ids[($s.path).toUpper()]
-        Write-Host $metric_id $value $source $timestamp
+        # Timestamp is set by the meter/plugin manager
+        Write-Host $metric_id $value $source
     }
     Start-Sleep -m $delay
 }
